@@ -1,13 +1,15 @@
-FROM python:3.8.0-slim-buster
+FROM python:3-slim
 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /qira-face
+RUN mkdir /qira-django
 
-WORKDIR /qira-face
+WORKDIR /qira-django
 
-COPY requirements.txt /qira-face/
+COPY requirements.txt /qira-django/
 
 RUN  pip install -r requirements.txt
 
-COPY . /qira-face/
+COPY . /qira-django/
+
+CMD python manage.py runserver 0.0.0.0:8000
