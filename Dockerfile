@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3-alpine
 
 ENV PYTHONUNBUFFERED 1
 
@@ -8,7 +8,7 @@ WORKDIR /qira-django
 
 COPY requirements.txt /qira-django/
 
-RUN  pip install -r requirements.txt
+RUN  ["pip", "install", "-r", "requirements.txt"]
 
 COPY . /qira-django/
 
