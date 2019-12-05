@@ -8,7 +8,7 @@ WORKDIR /qira-django
 
 COPY requirements.txt /qira-django/
 
-RUN  py-pip install -r requirements.txt
+RUN  pip install -r requirements.txt
 
 COPY . /qira-django/
 
