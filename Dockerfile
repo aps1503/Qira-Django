@@ -1,4 +1,4 @@
-FROM arm64v8/python:3-alpine
+FROM balenalib/raspberry-pi-alpine-python
 
 ENV PYTHONUNBUFFERED 1
 
