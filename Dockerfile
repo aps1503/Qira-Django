@@ -1,4 +1,4 @@
-FROM balenalib/raspberry-pi-alpine-python
+FROM balenalib/raspberrypi3-alpine-python
 
 ENV PYTHONUNBUFFERED 1
 
@@ -9,9 +9,9 @@ WORKDIR /qira-django
 COPY requirements.txt /qira-django/
 
 RUN apk update && \
-    apk add --virtual build-deps gcc python-dev musl-dev && \
+    apk add --virtual build-deps gcc musl-dev && \
     apk add postgresql-dev
-RUN python3 -m pip install -r requirements.txt
+RUN python -m pip install -r requirements.txt
 
 COPY . /qira-django/
 
