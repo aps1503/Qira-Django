@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM arm64v8/python:3-alpine
 
 ENV PYTHONUNBUFFERED 1
 
