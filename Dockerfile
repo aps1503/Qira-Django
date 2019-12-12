@@ -9,9 +9,9 @@ WORKDIR /qira-django
 COPY requirements.txt /qira-django/
 
 RUN apk update && \
-    apk add --virtual build-deps gcc musl-dev && \
+    apk add --virtual build-deps python3-dev gcc musl-dev && \
     apk add postgresql-dev
-RUN python -m pip install -r requirements.txt
+RUN python3 -m pip install -r requirements.txt
 
 COPY . /qira-django/
 
