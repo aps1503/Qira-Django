@@ -6,9 +6,8 @@ language: python
 services:
     - docker
 
-before_install:
+
+script:
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_SECRET_KEY"
     - docker build -t bak3dchips/qira-django . 
     - docker push bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER
-
-script: echo "Successfully built/pushed"
