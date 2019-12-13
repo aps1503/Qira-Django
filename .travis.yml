@@ -8,3 +8,5 @@ services:
 
 before_install:
     - docker build -t bak3dchips/qira-django . 
+
+script: echo "WOO"
