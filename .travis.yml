@@ -1,3 +1,5 @@
+os: linux
+
 arch:
     - arm64
 
@@ -7,8 +9,4 @@ services:
     - docker
 
 
-script:
-    - docker build -t bak3dchips/qira-django . 
-    - docker push bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER
-    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_SECRET_KEY"
-
+script: bash docker_build
