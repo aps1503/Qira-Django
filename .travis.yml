@@ -9,4 +9,4 @@ services:
     - docker
 
 
-script: bash docker_build
+script: bash docker_build.txt
