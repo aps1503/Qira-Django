@@ -4,7 +4,7 @@ docker login -u $DOCKER_USER -p $DOCKER_SECRET_KEY
 
 ARCH=$(uname -m)
 echo $ARCH
-COMP='arm64'
+COMP='aarch64'
 if [ $ARCH == $COMP ];
 then
     docker build -t bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER -f arm.Dockerfile .
