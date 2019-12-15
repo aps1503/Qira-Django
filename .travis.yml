@@ -9,7 +9,4 @@ language: python
 services:
     - docker
 
-jobs:
-    include:
-        - stage: build docker image
-        script: bash docker_build.txt
+script: bash docker_build.txt
