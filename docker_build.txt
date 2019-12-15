@@ -1,5 +1,15 @@
 #!/bin/bash
 
-docker build -t bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER .
 docker login -u $DOCKER_USER -p $DOCKER_SECRET_KEY
-docker push bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER
+
+ARCH = $(uname -m)
+COMP = (echo 'armv7l')
+if["$ARCH" == "$COMP"]
+then
+    docker build -t bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER -f arm.Dockerfile .
+    docker push bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER
+else
+    docker build -t bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER-amd64 -f amd64.Dockerfile .
+    docker push bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER-amd64
+fi
+
