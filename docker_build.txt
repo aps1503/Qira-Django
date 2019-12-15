@@ -4,8 +4,7 @@ docker login -u $DOCKER_USER -p $DOCKER_SECRET_KEY
 
 ARCH = $(uname -m)
 COMP = $(echo 'armv7l')
-if["$ARCH" == "$COMP"]
-then
+if["$ARCH" == "$COMP"]; then
     docker build -t bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER -f arm.Dockerfile .
     docker push bak3dchips/qira-django:0.0.$TRAVIS_BUILD_NUMBER
 else
