@@ -32,21 +32,18 @@
         </style>
         <link rel="stylesheet" href="{% static "qira_interface/rgb.css" %}">
         <script>
-            var itemsToSay = [
-                '',
-                '',
-                '',
-                '',
-                '',
-            ];
+            var itemsToSay = [];
             function getCurrentUpdates() {
-                $.get("https://team3487-redpriderobotics.github.io/Qira-Django/noti.html")
+                $.getJSON("https://team3487-redpriderobotics.github.io/Qira-Django/noti.html")
                 .done(function(data) {
-                    alert("Success");
+                    console.log(data)
+                    itemsToSay.push(data)
                 })
                 .fail(function(error) {
                     if(error.status == 404) {
-                        alert("404");
+                        itemsToSay = ['Notification File Does Not Exist']
+                    } else {
+                        itemsToSay = ['Error Pulling Notifications File']
                     }
                 });
             }
