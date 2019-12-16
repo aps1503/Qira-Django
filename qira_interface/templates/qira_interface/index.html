@@ -37,7 +37,7 @@
                 $.getJSON("https://team3487-redpriderobotics.github.io/Qira-Django/noti.html")
                 .done(function(data) {
                     console.log(data)
-                    itemsToSay.push(data)
+                    itemsToSay.push(data.itemsToSay)
                 })
                 .fail(function(error) {
                     if(error.status == 404) {
