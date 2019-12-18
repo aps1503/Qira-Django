@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "VERSION = 0.0.$TRAVIS_BUILD_NUMBER" >> qira/settings.py
+
 docker login -u $DOCKER_USER -p $DOCKER_SECRET_KEY
 
 ARCH=$(uname -m)
